@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- personal scripts -->
+	<script src="vector.js"></script>
+	<style>
+	label {
+		color: white;
+	}
+	</style>
+</head>
+<body class="bg-dark">
+	<nav class="navbar navbar-dark bg-dark">
+		<form class="form-inline" onsubmit="event.preventDefault(); return false;">
+			<div class="navbar-brand">Coherence</div>
+			<button class="btn btn-outline-primary mr-sm-3" id="worley" type="button">Worley</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="value" type="button">Value</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="fractal" type="button">Fractal</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="ridged" type="button">Ridged</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="export" type="button">Export</button>
+			<label class="mr-sm-3">Block Size:</label><input type="number" class="form-control mr-sm-3" id="block-size" value="150"/>
+			<label class="mr-sm-3">Seed:</label><input type="number" class="form-control mr-sm-3" id="seed" value="1319"/>		</form>
+	</nav>
+	
+	<nav class="navbar navbar-dark bg-dark collapse" id="worley-options">
+		<form class="form-inline" onsubmit="event.preventDefault(); return false;">
+			<button class="btn btn-outline-primary mr-sm-3" id="manhattan" type="button">Manhattan</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="euclid" type="button">Euclidean</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="cheby" type="button">Chebyshev</button>
+			<button class="btn btn-outline-primary mr-sm-3" id="worley-reset" type="button">Reset</button>
+		</form>
+	</nav>
+
+	<nav class="navbar navbar-dark bg-dark" id="fractal-options">
+		<form class="form-inline" onsubmit="event.preventDefault(); return false;">
+			<label class="mr-sm-3">Persistence:</label><input type="number" class="form-control mr-sm-3" id="persistence" value="0.5"/>
+			<label class="mr-sm-3">Lacunarity:</label><input type="number" class="form-control mr-sm-3" id="lacunarity" value="2"/>
+			<label class="mr-sm-3">Octaves:</label><input type="number" class="form-control mr-sm-3" id="octaves" value="5"/>
+		</form>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-2 d-none d-md-block bg-dark sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column" id="color-stops-list">
+						<li class="nav-item ml-sm-3 mt-sm-3">
+							<a class="nav-link bg-primary text-dark d-flex justify-content-between" style="border-radius: 20px;" href="#">
+								<span>#FFFFFF</span><span>0%</span>
+							</a>
+						</li>
+						<li class="nav-item ml-sm-3 mt-sm-3">
+							<a class="nav-link bg-primary text-dark d-flex justify-content-between" style="border-radius: 20px;"  href="#">
+								<span>#000000</span><span>100%</span>
+							</a>
+						</li>
+					</ul>
+					<form class="form-inline ml-sm-3" onsubmit="event.preventDefault(); return false;">
+						<input class="form-control mt-sm-3" id="hex-color" value="#"/>
+						<input type="number" class="form-control mt-sm-3" id="col-stop-pt" value="0.5"/>
+						<button class="btn btn-outline-primary mt-sm-3" id="add-col-stop" type="button">Add Color Stop</button>
+					</form>
+				</div>
+			</nav>
+			<div class="col-10 bg-dark">
+				<canvas class="w-100 h-100" width="1500" height="800" style="display: block; width: 1500px; height: 800px;"></canvas>
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
